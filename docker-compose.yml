@@ -9,6 +9,11 @@ services:
     ports:
       - "11434:11434"
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 24g     # puedes ajustar hasta 32g o más si quieres
+          cpus: "4.0"      # asigna varios núcleos, pero no todos
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main # v0.6.5
