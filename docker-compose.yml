@@ -14,10 +14,11 @@ services:
         limits:
           memory: 24g # puedes ajustar hasta 32g o más si quieres
           cpus: "4.0" # asigna varios núcleos, pero no todos
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all
-      - NVIDIA_DRIVER_CAPABILITIES=all
-    runtime: nvidia
+      reservations:
+        devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main # v0.6.5
