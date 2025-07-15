@@ -11,9 +11,6 @@ services:
     restart: unless-stopped
     deploy:
       resources:
-        limits:
-          memory: 24g # puedes ajustar hasta 32g o más si quieres
-          cpus: "4.0" # asigna varios núcleos, pero no todos
         reservations:
           devices:
             - driver: nvidia
